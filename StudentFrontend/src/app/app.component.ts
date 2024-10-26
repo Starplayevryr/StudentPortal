@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DarkModeService } from './dark-mode.service'; // Adjust the path as needed
 import { HttpClient } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
