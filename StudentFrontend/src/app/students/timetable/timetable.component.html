@@ -1,0 +1,30 @@
+<app-navbar1></app-navbar1>
+<div class="container">
+  <h2>Download Timetable</h2>
+
+  <!-- Class Selection Dropdown -->
+  <div class="form-group">
+    <label for="classSelect">Select Class:</label>
+    <select id="classSelect" class="form-control" [(ngModel)]="selectedClass">
+      <option *ngFor="let class of classes" [value]="class.value">{{ class.label }}</option>
+    </select>
+  </div>
+
+  <!-- Fetch Timetable Button -->
+  <button class="btn btn-primary mt-3" (click)="fetchTimetable()">Fetch Timetable</button>
+
+  <!-- Timetable Display -->
+  <div *ngIf="timetables.length > 0" class="timetable-list mt-4">
+    <h4>Available Timetables for {{ selectedClass }}:</h4>
+    <ul class="list-group">
+      <li *ngFor="let timetable of timetables" class="list-group-item">
+        <a [href]="timetable.fileUrl" target="_blank">Download Timetable (PDF)</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- No Timetables Found -->
+  <div *ngIf="timetables.length === 0 && selectedClass" class="alert alert-warning mt-4">
+    No timetable available for {{ selectedClass }}.
+  </div>
+</div>

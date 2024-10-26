@@ -1,0 +1,19 @@
+/* Default light mode styles */
+body {
+    background-color: white;
+    color: black;
+  }
+  
+  /* Dark mode styles */
+  body.dark-mode {
+    background-color: #121212; /* Dark background */
+    color: white; /* Light text color */
+  }
+  
+  /* Additional styles for dark mode */
+  .dark-mode .navbar {
+    background-color: #333; /* Adjust navbar color */
+  }
+  
+  /* Style other components for dark mode as needed */
+  

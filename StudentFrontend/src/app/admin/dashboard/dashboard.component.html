@@ -1,0 +1,79 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar> <!-- Sidebar for navigation -->
+  
+  <div class="flex-grow-1 p-3"> <!-- Main content area -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6a0dad;"> <!-- Purple navbar -->
+      <div class="container-fluid">
+        <img src="/images/reading.png" width="40px" height="30px">
+        <a class="navbar-brand" href="#">EᗪᑌGᗩTE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/settings">Settings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/postprofile">Postprofile</a>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <h1 class="text-center">𝚆𝚎𝚕𝑐𝚘𝚖𝚎, {{ userName }}</h1> <!-- Display user name -->
+      
+      <div class="row">
+        <div class="col-md-4 mb-4"> <!-- Card for displaying total users -->
+          <div class="card text-white bg-primary">
+            <div class="card-body">
+              <h5 class="card-title">Total Students</h5>
+              <p class="card-text">{{ totalStudents }}</p> <!-- Dynamic total students count -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="card text-white bg-success">
+            <div class="card-body">
+              <h5 class="card-title">New Notifications</h5>
+              <p class="card-text">{{ notifications.length }}</p> <!-- Dynamic notifications count -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="card text-white bg-warning">
+            <div class="card-body">
+              <h5 class="card-title">Pending Leave Requests</h5>
+          <p class="card-text">{{ pendingLeaveRequests }}</p> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="mt-4">Notifications</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let notification of notifications">
+            <td>{{ notification.title }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

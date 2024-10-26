@@ -1,0 +1,66 @@
+<div class="d-flex">
+    <app-sidebar></app-sidebar> <!-- Sidebar for navigation -->
+  
+    <div class="flex-grow-1 p-3"> <!-- Main content area -->
+        <!-- Purple navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6a0dad;">
+            <div class="container-fluid">
+              <img src="/images/reading.png" width="40px" height="30px">
+                <a class="navbar-brand" href="#">EᗪᑌGᗩTE</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/profile">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/settings">Settings</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/postprofile">Postprofile</a>
+                      </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+  
+        <!-- Main content -->
+        <div class="container-fluid">
+            <h1 class="text-center mb-4">Leave Requests</h1>
+  
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Leave Type</th>
+                  <th scope="col">Registration Number</th>
+                  <th scope="col">Reason</th>
+                  <th scope="col">Start Date</th>
+                  <th scope="col">End Date</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let leave of leaveRequests">
+                  <td>{{ leave.leaveType }}</td>
+                  <td>{{ leave.registrationNumber }}</td>
+                  <td>{{ leave.reason }}</td>
+                  <td>{{ leave.startDate | date:'yyyy-MM-dd' }}</td>
+                  <td>{{ leave.endDate | date:'yyyy-MM-dd' }}</td>
+                  <td>{{ leave.status }}</td>
+                  <td>
+                    <button class="btn btn-success" (click)="approveLeave(leave._id)">✔️</button>
+                    <button class="btn btn-danger" (click)="rejectLeave(leave._id)">❌</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+  

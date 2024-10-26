@@ -1,0 +1,43 @@
+.navbar {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 1rem 2rem; /* More padding for better spacing */
+    border-bottom: 2px solid #007bff; /* Blue bottom border */
+}
+
+.navbar-brand {
+    font-size: 1.8rem; /* Increase font size for brand name */
+    font-weight: bold; /* Make brand name bold */
+    color: #007bff; /* Brand color */
+}
+
+.nav-link {
+    color: #333 !important; /* Dark text color */
+    margin: 0 1rem; /* Spacing between links */
+    font-weight: 500; /* Medium font weight */
+}
+
+.nav-link:hover {
+    color: #007bff !important; /* Blue color on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+.dropdown-menu {
+    border-radius: 0.5rem; /* Rounded corners */
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem; /* More padding for dropdown items */
+}
+
+.dropdown-item:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: white; /* White text on hover */
+}
+
+.navbar-toggler {
+    border-color: rgba(0, 123, 255, 0.5); /* Blue border for the toggler */
+}
+
+.shadow {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}

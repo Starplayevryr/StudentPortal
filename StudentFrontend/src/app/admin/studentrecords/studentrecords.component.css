@@ -1,0 +1,11 @@
+.student-photo {
+    width: 50px; /* Initial width */
+    height: auto; /* Maintain aspect ratio */
+    transition: all 0.3s ease; /* Smooth transition */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .student-photo:hover {
+    width: 200px; /* Width on hover */
+    height: auto; /* Maintain aspect ratio */
+  }

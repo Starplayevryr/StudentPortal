@@ -1,0 +1,65 @@
+<div class="sidebar-container d-flex"> <!-- Parent container for sidebar and content -->
+    <div class="sidebar" [ngClass]="{'collapsed': isCollapsed}">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <span class="fs-4">𝔄𝔡𝔪𝔦𝔫 𝔇𝔞𝔰𝔥𝔟𝔬𝔞𝔯𝔡</span>
+        </a>
+        <button class="btn btn-toggle" (click)="toggleSidebar()" aria-label="Toggle sidebar">
+            <i class="bi" [ngClass]="isCollapsed ? 'bi-arrows-expand' : 'bi-arrows-collapse'"></i>
+        </button>
+        <hr>
+        
+        <div *ngIf="userName" class="text-white text-center mb-3">
+            <span>Welcome, {{ userName }}</span>
+        </div>
+    
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/dashboard" routerLinkActive="active">
+                    <i class="bi bi-house"></i>  𝙳𝚊𝚜𝚑𝚋𝚘𝚊𝚛𝚍
+                </a>
+            </li>
+            <li>
+                <a class="nav-link text-white" routerLink="/students" routerLinkActive="active">
+                    <i class="bi bi-person"></i> 
+                    𝚂𝚝𝚞d𝚎𝚗𝚝 𝚁𝚎𝚌𝚘𝚛𝚍𝚜
+                </a>
+            </li>
+            <li>
+                <a class="nav-link text-white" routerLink="/enrollment" routerLinkActive="active">
+                    <i class="bi bi-plus-circle"></i> 𝚂𝚝𝚞d𝚎𝚗𝚝 𝙴𝚗𝚛𝚘𝚕𝚕𝚖𝚎𝚗𝚝
+                </a>
+            </li>
+            <li>
+                <a class="nav-link text-white" routerLink="/notifications" routerLinkActive="active">
+                    <i class="bi bi-bell"></i> 𝙽𝚘𝚝𝚒𝚏𝚒𝚌𝚊𝚝𝚒𝚘𝚗𝚜
+                </a>
+            </li>
+            <li>
+                <a class="nav-link text-white" routerLink="/leaverequests" routerLinkActive="active">
+                    <i class="bi bi-file-earmark-post"></i> Leave Requests
+                </a>
+            </li>
+            <li>
+                <a class="nav-link text-white" routerLink="/examtimetable" routerLinkActive="active">
+                    <i class="bi bi-calendar"></i> Exam Timetable
+                </a>
+            </li>
+        </ul>
+        
+        <div class="mt-auto"> <!-- Moves the sign-out option to the bottom -->
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-danger" (click)="signOut()">
+                        <i class="bi bi-box-arrow-right"></i> Sign Out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  
+    <div class="content-area flex-grow-1"> <!-- Main content area -->
+        <router-outlet></router-outlet> <!-- Display routed content here -->
+    </div>
+  </div>
+  

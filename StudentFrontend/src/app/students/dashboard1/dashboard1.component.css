@@ -1,0 +1,160 @@
+/* Dashboard Container */
+.dashboard-container {
+  padding: 20px;
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack elements vertically */
+}
+
+/* Card Common Height */
+.card {
+  height: 100%; /* Allow the card to take the height of its parent */
+}
+
+/* Calendar Section */
+.calendar-section {
+  margin-bottom: 20px;
+}
+
+/* Calendar Styling */
+.calendar {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Calendar Header */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columns for the 7 days of the week */
+  gap: 5px;
+}
+
+/* Calendar Day Header */
+.calendar-day-header {
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+/* Calendar Day */
+.calendar-day {
+  text-align: center;
+  position: relative;
+  padding: 15px 0;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+/* Highlighted Day */
+.highlight {
+  background-color: lightblue;
+  color: #0066cc;
+  font-weight: bold;
+  border: 1px solid #0066cc;
+}
+
+/* Event Day */
+.event-day {
+  background-color: #ffeb3b;
+  color: #000;
+}
+
+/* Notification Dot */
+.notification-dot {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+/* Student Profile Section */
+.student-details-section {
+  margin-bottom: 20px;
+}
+
+.student-details-section .card {
+  padding: 20px;
+}
+
+/* Student Details Image */
+.student-details-section img {
+  border-radius: 50%;
+  margin: 15px 0;
+}
+
+/* Student Details Text */
+.student-details-section p {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* Notification and Description Cards */
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h5 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.card-body p {
+  font-size: 14px;
+}
+
+.list-group-item {
+  font-size: 14px;
+  padding: 10px;
+}
+
+.no-notifications {
+  font-size: 14px;
+  color: #888;
+  padding: 10px;
+}
+
+/* Notification Item Hover Effect */
+.list-group-item {
+  font-size: 14px;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.list-group-item:hover {
+  transform: scale(1.1); /* Increase size */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for effect */
+  z-index: 1; /* Bring it in front */
+}
+
+/* Center the notification text on hover */
+.list-group-item:hover strong,
+.list-group-item:hover small {
+  display: block;
+  text-align: center; /* Center text */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .calendar-day,
+  .calendar-day-header {
+    padding: 8px;
+  }
+}

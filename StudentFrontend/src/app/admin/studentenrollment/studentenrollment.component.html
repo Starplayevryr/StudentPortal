@@ -1,0 +1,105 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar> <!-- Sidebar for navigation -->
+
+  <div class="flex-grow-1 p-3"> <!-- Main content area -->
+      <!-- Purple navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6a0dad;">
+          <div class="container-fluid">
+            <img src="/images/reading.png" width="40px" height="30px">
+              <a class="navbar-brand" href="#">EᗪᑌGᗩTE</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Settings</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/postprofile">Postprofile</a>
+                    </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+
+      <!-- Main content -->
+      <div class="container-fluid">
+          <h1 class="text-center mb-4">Student Enrollment</h1>
+
+          <!-- Enrollment Form -->
+          <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                  <!-- Left Column -->
+                  <div class="col-md-6">
+                      <div class="form-group mb-3">
+                          <label for="registrationNumber">Registration Number</label>
+                          <input type="text" id="registrationNumber" formControlName="registrationNumber" class="form-control" placeholder="Enter registration number">
+                      </div>
+
+                      <div class="form-group mb-3">
+                          <label for="firstName">First Name</label>
+                          <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="Enter first name">
+                      </div>
+
+                      <div class="form-group mb-3">
+                          <label for="lastName">Last Name</label>
+                          <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Enter last name">
+                      </div>
+
+                      <div class="form-group mb-3">
+                          <label for="email">Email</label>
+                          <input type="email" id="email" formControlName="email" class="form-control" placeholder="Enter email">
+                      </div>
+                  </div>
+
+                  <!-- Right Column -->
+                  <div class="col-md-6">
+                      <div class="form-group mb-3">
+                          <label for="class">Class</label>
+                          <select id="class" formControlName="class" class="form-control">
+                              <option value="" disabled selected>Select class</option>
+                              <option value="1st sem">1st sem</option>
+                              <option value="2nd sem">2nd sem</option>
+                              <option value="3rd sem">3rd sem</option>
+                              <option value="4th sem">4th sem</option>
+                              <option value="5th sem">5th sem</option>
+                              <option value="6th sem">6th sem</option>
+                              <option value="7th sem">7th sem</option>
+                              <option value="8th sem">8th sem</option>
+                          </select>
+                      </div>
+
+                      <div class="form-group mb-3">
+                          <label for="age">Age</label>
+                          <input type="number" id="age" formControlName="age" class="form-control" placeholder="Enter age">
+                      </div>
+
+                      <div class="form-group mb-3">
+                          <label for="phno">Phone Number</label>
+                          <input type="text" id="phno" formControlName="phno" class="form-control" placeholder="Enter phone number">
+                      </div>
+
+                      <div class="form-group mb-3">
+                          <label for="address">Address</label>
+                          <input type="text" id="address" formControlName="address" class="form-control" placeholder="Enter address">
+                      </div>
+                  </div>
+              </div>
+
+              <div class="form-group mb-3">
+                  <label for="photo">Upload Photo</label>
+                  <input type="file" id="photo" (change)="onFileSelected($event)" class="form-control-file">
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100" [disabled]="studentForm.invalid">Enroll Student</button>
+          </form>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+.custom-img {
+    width: 100%; /* Set width to 100% for responsive design */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 100%; /* Limit maximum height */
+}
+
+.scrollable-form {
+    max-height: 70vh; /* Set a maximum height for the form area */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 20px; /* Add padding for better aesthetics */
+}
+
+.customcard {
+    position: absolute;
+    margin-top: 2%; /* Adjusted for better positioning */
+    margin-left: 20%;
+    padding: 20px; /* Padding around the card */
+    width: 100%; /* Increase width to 90% */
+    max-width: 1000px; /* Optional: Maximum width for larger screens */
+    z-index: 1; /* Ensure it sits above other content */
+}
+
+.card {
+    border-radius: 15px; /* Rounded corners for the entire card */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    width: 100%; /* Set the card to take full width of the container */
+}
+
+.container {
+    max-width: 100%; /* Ensure the container is as wide as the screen allows */
+    padding: 0; /* Remove any padding that may limit width */
+}
+
+/* Title Styling */
+.card-title {
+    margin-bottom: 20px;
+}
+
+.unique-title {
+    font-family: 'Courier New', Courier, monospace; /* Unique font style */
+    font-size: 28px; /* Increase font size */
+    color: #fff; /* White color for the title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+}
+
+/* Purple Background for Form Section */
+.purple-background {
+    background-color: #6f42c1; /* Purple background */
+    padding: 20px; /* Padding inside the purple background */
+    border-top-left-radius: 15px; /* Rounded corners on the left */
+    border-bottom-left-radius: 15px; /* Rounded corners on the left */
+}
+
+/* Image Styling */
+.img-fluid {
+    max-height: 100%; /* Prevents overflow */
+    object-fit: cover; /* Ensure the image covers the space */
+    max-width: 90%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Welcome Message Styling */
+.welcome-message {
+    font-size: 24px; /* Adjust the font size as needed */
+    margin-top: 15px; /* Space above the message */
+}
+
+/* Scrollbar Styling */
+.scrollable-form::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+}
+
+.scrollable-form::-webkit-scrollbar-thumb {
+    background: #6f42c1; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded edges of the scrollbar thumb */
+}
+
+.scrollable-form::-webkit-scrollbar-thumb:hover {
+    background: #5a35a0; /* Darker color on hover */
+}
+
+

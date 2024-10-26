@@ -1,0 +1,52 @@
+/* Adjust the height of the carousel item */
+.carousel-item {
+    height: 500px; /* Adjust this value to your desired height */
+    overflow: hidden; /* Hide any overflow */
+}
+
+.carousel-item img {
+    /* Ensure images cover the entire carousel item */
+    height: 100%; /* Fill the height of the carousel item */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area, cropping as necessary */
+}
+.about-section {
+    display: flex;
+    justify-content: space-between; /* Aligns items to the edges */
+    align-items: center; /* Centers items vertically */
+    padding: 2rem 0; /* Adds padding top and bottom */
+  }
+  
+  .about-section h2 {
+    font-size: 2.5rem; /* Adjust font size as needed */
+    font-weight: bold; /* Makes the heading bold */
+    margin: 0; /* Removes default margin */
+    flex: 1; /* Takes up available space */
+  }
+  
+  .about-section p {
+    font-size: 1.2rem; /* Adjust font size for text */
+    margin: 0; /* Removes default margin */
+    flex: 1; /* Takes up available space */
+    padding-left: 20px; /* Adds padding to the left for spacing */
+  }
+  
+  /* Additional styling for sections */
+  .mission-section,
+  .contact-us-section {
+    text-align: center; /* Centers text for these sections */
+    padding: 3rem 0; /* Adds padding top and bottom */
+  }
+  
+  .mission-section h2,
+  .contact-us-section h2 {
+    font-size: 2.5rem; /* Adjust font size for headings */
+  }
+  
+  .contact-us-section form {
+    max-width: 600px; /* Limits the form width */
+    margin: 0 auto; /* Centers the form */
+  }
+  .text-gold {
+    color: #FFD700; /* Gold color */
+}

@@ -1,0 +1,81 @@
+.navbar-collapse-animated {
+    transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  
+  .collapse.show {
+    height: auto;
+    opacity: 1;
+  }
+  
+  .collapse:not(.show) {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  /* Navbar Background Color */
+.navbar {
+  background-color: #6f42c1; /* Purple color */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Navbar Links */
+.navbar .nav-link {
+  color: white; /* Change link color to white */
+  transition: color 0.3s ease; /* Smooth transition for link color */
+}
+
+/* Hover Effect for Links */
+.navbar .nav-link:hover {
+  color: #ffd700; /* Change color on hover */
+  transform: scale(1.1); /* Scale effect on hover */
+}
+
+/* Active Link Effect */
+.navbar .nav-link.active {
+  font-weight: bold; /* Make active link bold */
+  text-decoration: underline; /* Underline the active link */
+}
+
+/* Toggler Button */
+.navbar-toggler {
+  border-color: white; /* White border for toggler button */
+}
+
+/* Offcanvas Menu */
+.offcanvas {
+  background-color: #5a35a0; /* Darker purple for offcanvas */
+}
+
+/* Offcanvas Links */
+.offcanvas .nav-link {
+  color: white; /* White text for offcanvas links */
+  transition: color 0.3s ease; /* Smooth transition for link color */
+}
+
+/* Hover Effect for Offcanvas Links */
+.offcanvas .nav-link:hover {
+  color: #ffd700; /* Change color on hover */
+}
+
+/* Animation for Offcanvas Menu */
+.offcanvas {
+  animation: slide-in 0.5s forwards; /* Slide in animation */
+}
+
+/* Slide-in Animation Keyframes */
+@keyframes slide-in {
+  from {
+      transform: translateX(100%);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+/* Shadow Effect on Scroll */
+.navbar.scrolled {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow when scrolled */
+}
+

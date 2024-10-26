@@ -1,0 +1,97 @@
+<app-navbar1></app-navbar1>
+<div class="container mt-5">
+  <h2>Leave Status for Registration Number: {{ registrationNumber }}</h2>
+
+  <!-- Display total leave requests count -->
+  <p>Total Leave Requests Applied: {{ leaveRequestCount }}</p>
+
+  <!-- Check if there are ongoing leave requests -->
+  <div *ngIf="ongoingLeaveRequests.length > 0; else noOngoingRequests">
+    <h3>Ongoing Leave Requests</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Leave Type</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leave of ongoingLeaveRequests">
+          <td>{{ leave.leaveType }}</td>
+          <td>{{ leave.startDate | date:'yyyy-MM-dd' }}</td>
+          <td>{{ leave.endDate | date:'yyyy-MM-dd' }}</td>
+          <td>{{ leave.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Template for no ongoing leave requests -->
+  <ng-template #noOngoingRequests>
+    <div class="alert alert-info" role="alert">
+      No ongoing leave requests found.
+    </div>
+  </ng-template>
+
+  <!-- Check if there are upcoming leave requests -->
+  <div *ngIf="upcomingLeaveRequests.length > 0; else noUpcomingRequests">
+    <h3>Upcoming Leave Requests</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Leave Type</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leave of upcomingLeaveRequests">
+          <td>{{ leave.leaveType }}</td>
+          <td>{{ leave.startDate | date:'yyyy-MM-dd' }}</td>
+          <td>{{ leave.endDate | date:'yyyy-MM-dd' }}</td>
+          <td>{{ leave.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Template for no upcoming leave requests -->
+  <ng-template #noUpcomingRequests>
+    <div class="alert alert-info" role="alert">
+      No upcoming leave requests found.
+    </div>
+  </ng-template>
+
+  <!-- Check if there are any total leave requests -->
+  <div *ngIf="leaveRequests.length > 0 && upcomingLeaveRequests.length === 0 && ongoingLeaveRequests.length === 0">
+    <h3>Previous Leave Requests (Old)</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Leave Type</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leave of leaveRequests">
+          <td>{{ leave.leaveType }}</td>
+          <td>{{ leave.startDate | date:'yyyy-MM-dd' }}</td>
+          <td>{{ leave.endDate | date:'yyyy-MM-dd' }}</td>
+          <td>{{ leave.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Template for no leave requests -->
+  <ng-template #noRequests>
+    <div class="alert alert-info" role="alert">
+      No leave requests found for this registration number.
+    </div>
+  </ng-template>
+</div>

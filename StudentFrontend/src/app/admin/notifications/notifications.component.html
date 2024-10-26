@@ -1,0 +1,114 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar> <!-- Sidebar for navigation -->
+
+  <div class="flex-grow-1 p-3"> <!-- Main content area -->
+    <!-- Purple navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6a0dad;">
+      <div class="container-fluid">
+        <img src="/images/reading.png" width="40px" height="30px">
+        <a class="navbar-brand" href="#">EᗪᑌGᗩTE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/settings">Settings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/postprofile">Postprofile</a>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container-fluid">
+      <h1 class="text-center mb-4">Send Notification</h1>
+
+      <!-- Notification Form -->
+      <form [formGroup]="notificationForm" (ngSubmit)="onSubmitNotification()">
+        <div class="form-group mb-3">
+          <label for="title">Notification Title</label>
+          <input type="text" id="title" formControlName="title" class="form-control" placeholder="Enter notification title">
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="message">Message</label>
+          <textarea id="message" formControlName="message" class="form-control" placeholder="Enter notification message"></textarea>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="class">Class</label>
+          <select id="class" formControlName="class" class="form-control">
+              <option value="" disabled selected>Select class</option>
+              <option value="1st Sem">1st Sem</option>
+              <option value="2nd Sem">2nd Sem</option>
+              <option value="3rd Sem">3rd Sem</option>
+              <option value="4th Sem">4th Sem</option>
+              <option value="5th Sem">5th Sem</option>
+              <option value="6th Sem">6th Sem</option>
+              <option value="7th Sem">7th Sem</option>
+              <option value="8th Sem">8th Sem</option>
+              <option value="ALL">All</option>
+          </select>
+      </div>
+      
+      <div class="form-group mb-3">
+          <label for="type">Notification Type</label>
+          <select id="type" formControlName="type" class="form-control">
+              <option value="" disabled selected>Select type</option>
+              <option value="general">General</option>
+              <option value="event">Event</option>
+              <option value="assignment">Assignment</option>
+              <option value="remainder">Remainder</option>
+          </select>
+      </div>
+
+        <!-- Schedule Date -->
+        <div class="form-group mb-3">
+          <label for="scheduleDate">Schedule Date</label>
+          <input type="date" id="scheduleDate" formControlName="scheduleDate" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100" [disabled]="notificationForm.invalid">Send Notification</button>
+      </form>
+
+      <!-- Existing Notifications Section -->
+      <h2 class="mt-4">Existing Notifications</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Message</th>
+            <th>Class</th>
+            <th>Type</th>
+            <th>Schedule Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let notification of notifications">
+            <td>{{ notification.title }}</td>
+            <td>{{ notification.message }}</td>
+            <td>{{ notification.class }}</td>
+            <td>{{ notification.type }}</td>
+            <td>{{ notification.scheduleDate | date }}</td>
+            <td>
+              <button (click)="editNotification(notification)" class="btn btn-warning btn-sm">Edit</button>
+              <button (click)="confirmDelete(notification)" class="btn btn-danger btn-sm">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="d-flex">
+    <app-sidebar></app-sidebar> <!-- Sidebar for navigation -->
+  
+    <div class="flex-grow-1 p-3"> <!-- Main content area -->
+        <!-- Purple navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6a0dad;">
+            <div class="container-fluid">
+                <img src="/images/reading.png" width="40px" height="30px">
+                <a class="navbar-brand" href="#">EᗪᑌGᗩTE</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/settings">Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/postprofile">Postprofile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+  
+        <!-- Main content -->
+        <div class="container-fluid">
+            <h1 class="text-center mb-4">Timetable Management</h1>
+  
+            <!-- Timetable Upload Form -->
+            <form (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <!-- Left Column -->
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label for="class">Class</label>
+                            <select [(ngModel)]="selectedClass" id="class" class="form-control" name="class">
+                                <option value="" disabled>Select class</option>
+                                <option value="1st sem">1st sem</option>
+                                <option value="2nd sem">2nd sem</option>
+                                <option value="3rd sem">3rd sem</option>
+                                <option value="4th sem">4th sem</option>
+                                <option value="5th sem">5th sem</option>
+                                <option value="6th sem">6th sem</option>
+                            </select>
+                        </div>
+                    </div>
+  
+                    <!-- Right Column -->
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label for="file">Upload Timetable</label>
+                            <br>
+                            <input type="file" (change)="onFileSelected($event)" id="file" class="form-control-file">
+                        </div>
+                    </div>
+                </div>
+  
+                <button type="submit" class="btn btn-primary w-100">Upload Timetable</button>
+            </form>
+  
+            <!-- Timetable List -->
+            <h2 class="mt-5">Available Timetables</h2>
+            <div class="row">
+                <div *ngFor="let timetable of timetables" class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ timetable.class }}</h5>
+                            <a [href]="timetable.fileUrl" class="btn btn-primary" target="_blank">Download Timetable</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

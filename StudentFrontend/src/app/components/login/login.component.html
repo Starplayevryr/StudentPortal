@@ -1,0 +1,105 @@
+<app-navbar></app-navbar>
+
+<div class="customcard">
+  <div class="container d-flex align-items-center justify-content-center min-vh-75 mb-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card animate__animated animate__fadeIn">
+          <div class="row g-0">
+            <!-- Left Side: Form with Purple Background -->
+            <div class="col-md-6 purple-background">
+              <div class="card-body">
+                <h5 class="card-title text-center unique-title">Login</h5>
+
+                <!-- Bind the form to the Angular form -->
+                <form [formGroup]="form" (ngSubmit)="submit()">
+                  <div class="mb-3">
+                    <label for="registerNumber" class="form-label">Register Number</label>
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id="registerNumber" 
+                      formControlName="registrationNumber"
+                      [ngClass]="{'is-invalid': form.get('registrationNumber')?.invalid && form.get('registrationNumber')?.touched}" 
+                      required>
+                    <!-- Error message for registration number -->
+                    <div *ngIf="form.get('registrationNumber')?.invalid && form.get('registrationNumber')?.touched" class="text-danger">
+                      Register number is required.
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input 
+                      type="email" 
+                      class="form-control" 
+                      id="email" 
+                      formControlName="email"
+                      [ngClass]="{'is-invalid': form.get('email')?.invalid && form.get('email')?.touched}" 
+                      required>
+                    <!-- Error message for email -->
+                    <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="text-danger">
+                      Please enter a valid email.
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input 
+                      type="password" 
+                      class="form-control" 
+                      id="password" 
+                      formControlName="password"
+                      [ngClass]="{'is-invalid': form.get('password')?.invalid && form.get('password')?.touched}" 
+                      required>
+                    <!-- Error message for password -->
+                    <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="text-danger">
+                      Password must be at least 6 characters.
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="role" class="form-label">Role</label>
+                    <select 
+                      class="form-select" 
+                      id="role" 
+                      formControlName="role"
+                      [ngClass]="{'is-invalid': form.get('role')?.invalid && form.get('role')?.touched}" 
+                      required>
+                      <option value="" disabled>Select your role</option>
+                      <option value="student">Student</option>
+                      <option value="admin">Admin</option>
+                   
+                    </select>
+                    <!-- Error message for role -->
+                    <div *ngIf="form.get('role')?.invalid && form.get('role')?.touched" class="text-danger">
+                      Please select a role.
+                    </div>
+                  </div>
+
+                  <!-- Show a loading spinner when the form is being submitted -->
+                  <button type="submit" class="btn btn-light w-100" [disabled]="isLoading">
+                    <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Login
+                  </button>
+
+                  <p><i>Don't have an account? <a routerLink="/register">Register</a> now..</i></p>
+                </form>
+              </div>
+            </div>
+
+            <!-- Right Side: Image with Description -->
+            <div class="col-md-6 d-none d-md-block text-center">
+              <br><br>
+              <div>
+                <h5 class="mt-3 welcome-message">Welcome to Student Portal!</h5>
+              </div>
+              <br><br>
+              <img src="/images/login3.png" class="img-fluid" alt="Login Image" height="400px">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

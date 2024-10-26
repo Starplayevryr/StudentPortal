@@ -1,0 +1,51 @@
+<div class="d-flex">
+    <app-sidebar></app-sidebar> <!-- Sidebar for navigation -->
+
+    <div class="flex-grow-1 p-3"> <!-- Main content area -->
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6a0dad;">
+            <div class="container-fluid">
+                <img src="/images/reading.png" width="40px" height="30px">
+                <a class="navbar-brand" href="#">EᗪᑌGᗩTE</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/settings">Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/postprofile">Postprofile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-5">
+            <h1 class="text-center">𝙰𝚍𝚖𝚒𝚗 𝙿𝚛𝚘𝚏𝚒𝚕𝚎</h1>
+            <br>
+            <div class="d-flex justify-content-center"> <!-- Centering the profile container -->
+                <div class="profile-container d-flex align-items-center"> <!-- Added flexbox to center align items -->
+                    <div class="profile-photo">
+                        <img *ngIf="admin?.profilePhoto" [src]="admin?.profilePhoto" alt="Profile Photo" class="img-fluid">
+                    </div>
+                    <div class="profile-details ms-4"> <!-- Added margin to separate from the photo -->
+                        <p><strong>Registration Number:</strong> {{ admin?.registrationNumber }}</p>
+                        <p><strong>Email:</strong> {{ admin?.email }}</p>
+                        <p><strong>Phone:</strong> {{ admin?.phone }}</p>
+                        <p><strong>Address:</strong> {{ admin?.address }}</p>
+                        <p><strong>Admin Level:</strong> {{ admin?.adminLevel }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

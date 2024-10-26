@@ -1,0 +1,76 @@
+<app-navbar1></app-navbar1>
+<br><br>
+<div class="dashboard-container">
+  <div class="row">
+    <!-- Left Side: Calendar -->
+    <div class="col-md-4 calendar-section">
+      <div class="card">
+        <div class="card-body">
+          <h4>Calendar</h4>
+          <div class="calendar">
+            <div class="calendar-header">
+              <button class="btn btn-light" (click)="prevMonth()">&#8249;</button>
+              <span>{{ monthNames[currentMonth] }} {{ currentYear }}</span>
+              <button class="btn btn-light" (click)="nextMonth()">&#8250;</button>
+            </div>
+            <div class="calendar-grid">
+              <div *ngFor="let day of daysOfWeek" class="calendar-day-header">{{ day }}</div>
+              <div *ngFor="let date of calendarDates" class="calendar-day" 
+                   [ngClass]="{
+                     'highlight': isToday(date), 
+                   }">
+                <span>{{ date.getDate() }}</span>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Student Profile and Details -->
+    <div class="col-md-8 student-details-section">
+      <div class="card text-center">
+        <div *ngIf="studentDetails">
+          <h2>Welcome, {{ studentDetails.firstName }} {{ studentDetails.lastName }}</h2>
+          <img [src]="'http://localhost:5000/' + studentDetails.photo" alt="Student Photo" width="100px" height="100px"/>
+          <p><strong>Registration Number:</strong> {{ studentDetails.registrationNumber }}</p>
+          <p><strong>Email:</strong> {{ studentDetails.email }}</p>
+          <p><strong>Class:</strong> {{ studentDetails.class }}</p>
+          <p><strong>Age:</strong> {{ studentDetails.age }}</p>
+          <p><strong>Phone Number:</strong> {{ studentDetails.phno }}</p>
+          <p><strong>Address:</strong> {{ studentDetails.address }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Description and Notifications Section -->
+  <div class="row mt-4">
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5>Notifications</h5>
+          <div *ngIf="notifications.length > 0; else noNotifications">
+            <ul class="list-group">
+              <ng-container *ngFor="let notification of notifications">
+                <li class="list-group-item" 
+                    *ngIf="isNotificationRelevant(notification)">
+                  <strong>{{ notification.title }}</strong>: {{ notification.message }} <br>
+                  <small>Scheduled for: {{ notification.scheduleDate | date:'fullDate' }}</small> <br>
+                  <small>Sent by: {{ notification.sentBy }}</small> <br>
+                  <small>Class: {{ notification.class }}</small> <br>
+                  <small>Date Sent: {{ notification.dateSent | date:'fullDate' }}</small>
+                </li>
+              </ng-container>
+            </ul>
+          </div>
+          <ng-template #noNotifications>
+            <p>No notifications for this month.</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

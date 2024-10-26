@@ -1,0 +1,74 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar> <!-- Sidebar for navigation -->
+  
+  <div class="flex-grow-1 p-3"> <!-- Main content area -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6a0dad;"> <!-- Purple navbar -->
+      <div class="container-fluid">
+        <img src="/images/reading.png" width="40px" height="30px">
+        <a class="navbar-brand" href="#">EᗪᑌGᗩTE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/settings">Settings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/postprofile">Postprofile</a>
+          </li>
+          </ul>
+          <form class="d-flex" (submit)="filterStudents(); $event.preventDefault()"> <!-- Prevent page reload -->
+            <input class="form-control me-2" type="search" placeholder="Search by Registration No. or Email" aria-label="Search" [(ngModel)]="searchQuery" name="searchQuery" (input)="filterStudents()"> <!-- Add name attribute -->
+            <button class="btn btn-outline-light" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <h2 class="mt-4">Student Records</h2>
+      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Registration Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Class</th>
+            <th>Age</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Photo</th>
+            <th>Actions</th> <!-- Added column for buttons -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of filteredStudents">
+            <td>{{ student.registrationNumber }}</td>
+            <td>{{ student.firstName }}</td>
+            <td>{{ student.lastName }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.class }}</td>
+            <td>{{ student.age }}</td>
+            <td>{{ student.phno }}</td>
+            <td>{{ student.address }}</td>
+            <td>
+              <img class="student-photo" [src]="student.photo" alt="Student Photo" width="50" height="50" *ngIf="student.photo" />
+            </td>
+            <td>
+              <button (click)="deleteStudent(student.registrationNumber)" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

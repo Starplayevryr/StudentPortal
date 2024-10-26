@@ -1,0 +1,51 @@
+/* src/app/admin/sidebar/sidebar.component.css */
+
+/* Sidebar styling */
+.sidebar {
+    background-color: #6a0dad; /* Purple color */
+    height: 100vh; /* Full viewport height */
+    position: fixed; /* Fix position to keep it on the left */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 250px; /* Default width */
+    transition: width 0.3s; /* Smooth transition for width */
+    z-index: 1000; /* Ensure sidebar is above other elements */
+}
+
+/* Content area */
+.content-area {
+    margin-left: 250px; /* Leave space for the sidebar */
+    padding: 20px; /* Add padding for content */
+    height: 100vh; /* Full height */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}
+
+/* Sidebar collapsed state */
+.collapsed {
+    width: 60px; /* Width when collapsed */
+}
+
+/* Ensure links in the sidebar are visible */
+.nav-link {
+    color: white; /* White color for links */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Hover and active states */
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+    color: #ffeb3b; /* Change text color on hover */
+}
+
+.nav-link.active {
+    background-color: #5c007a; /* Darker purple for active link */
+}
+
+/* Optional: Toggle button styles */
+.btn-toggle {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+}

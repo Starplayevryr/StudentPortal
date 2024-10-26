@@ -1,0 +1,47 @@
+/* Profile Container */
+.profile-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center the container horizontally */
+    transition: transform 0.3s ease; /* Smooth scaling on hover */
+}
+
+/* Profile Photo Styles */
+.profile-photo img {
+    width: 300px; /* Adjust width of profile photo */
+    height: 300px; /* Adjust height of profile photo */
+    border-radius: 50%; /* Make circular */
+    object-fit: cover; /* Maintain aspect ratio */
+    box-shadow: 0 0 15px rgba(106, 13, 255, 0.7); /* Purple shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth shadow and scale transition */
+}
+
+/* Scale and Shadow Effect on Hover */
+.profile-photo img:hover {
+    transform: scale(1.1); /* Slightly increase size */
+    box-shadow: 0 0 30px rgba(106, 13, 255, 1); /* Enhanced shadow on hover */
+}
+
+/* Profile Details */
+.profile-details {
+    flex-grow: 1; /* Allow the details section to take remaining space */
+    text-align: left; /* Align text to the left */
+    font-size: 1.5rem; /* Increase font size for details */
+    line-height: 1.6; /* Adjust line height for better spacing */
+    margin-left: 20px; /* Add left margin for spacing */
+}
+
+/* Hover Effect for Details */
+.profile-details p {
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.profile-details p:hover {
+    color: rgba(106, 13, 255, 1); /* Change color on hover */
+}
+
+/* Animation for Container */
+.profile-container:hover {
+    transform: translateY(-5px); /* Slight upward movement */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
