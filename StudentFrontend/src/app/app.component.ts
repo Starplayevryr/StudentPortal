@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
 })
 export class AppComponent {
   title = 'StudentFrontend';
-  apiUrl = 'https://student-portal-jade-pi.vercel.app'; // Your Vercel API URL
+  apiUrl = 'https://vercel.com/api/toolbar/link/student-portal-jade-pi.vercel.app?via=project-dashboard-alias-list&p=1&page=/'; // Your Vercel API URL
   /*
   title = 'StudentFrontend';
   constructor(private darkModeService: DarkModeService) {}
