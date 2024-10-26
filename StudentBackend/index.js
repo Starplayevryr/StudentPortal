@@ -20,7 +20,7 @@ app.use(express.static('public')); // Serves static files from 'public'
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(cors({
-    origin: 'http://localhost:4200', // Allow requests from this origin
+    origin: 'https://student-portal-e98t.vercel.app/' // Allow requests from this origin
     credentials: true // Allow credentials (cookies, authorization headers, etc.)
 }));
 
